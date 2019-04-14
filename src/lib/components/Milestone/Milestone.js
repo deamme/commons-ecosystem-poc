@@ -1,4 +1,6 @@
 import React from 'react'
+import dai from '../../assets/images/dai-large.png'
+import griff from '../../assets/images/griff.png'
 import EcosystemNavbar from '../EcosystemNavbar'
 import PrimaryButton from '../PrimaryButton'
 import './Milestone.scss'
@@ -31,7 +33,7 @@ export class MilestoneHeader extends React.Component {
           <div>
             <div>Campaign: Planting seeds in South Indonesia Forests</div>
             <h1>Plant 100 trees</h1>
-            <p>
+            <p className="description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -44,8 +46,9 @@ export class MilestoneHeader extends React.Component {
                   onClick={() => this.setState({ state: 'nominate' })}
                 />
                 <PrimaryButton
-                  name="Donate"
+                  name="Donate xDAI"
                   onClick={() => this.setState({ state: 'donate' })}
+                  showDai
                 />
               </div>
             )}
@@ -75,7 +78,6 @@ export class MilestoneHeader extends React.Component {
                 />
               </div>
             )}
-            <div>Needs staking 100+ VIC tokens</div>
           </div>
         </div>
       </div>
@@ -92,11 +94,16 @@ export class MilestoneInfo extends React.Component {
           <div>
             <h3>Creator</h3>
             <div className="user-container">
-              <div className="pic"></div>
+              <div className="pic" />
               <div>Anonymous user</div>
             </div>
             <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis lorem sapien, at rutrum orci viverra non. Donec vitae odio suscipit, suscipit eros at, auctor justo. Sed sit amet magna non elit hendrerit pharetra. Nullam imperdiet ultrices hendrerit. Nullam tempor, est sed rhoncus feugiat, augue lacus sodales tortor, suscipit
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              lobortis lorem sapien, at rutrum orci viverra non. Donec vitae
+              odio suscipit, suscipit eros at, auctor justo. Sed sit amet magna
+              non elit hendrerit pharetra. Nullam imperdiet ultrices hendrerit.
+              Nullam tempor, est sed rhoncus feugiat, augue lacus sodales
+              tortor, suscipit
             </div>
           </div>
           <div>
@@ -118,7 +125,7 @@ export class MilestoneInfo extends React.Component {
           <div>
             <h3>Reviewer</h3>
             <div className="user-container">
-              <div className="pic"></div>
+              <img src={griff} />
               <div>Griff Green</div>
             </div>
             <div className="little-info">
@@ -126,10 +133,14 @@ export class MilestoneInfo extends React.Component {
             </div>
           </div>
           <div>
-            <h3>Fund Requested</h3>
-            <div>2000 xDAI</div>
+            <h3 style={{ margin: '0.5rem' }}>Fund Requested</h3>
+            <div className="funds-requested">
+              <img src={dai} />
+              2000 xDAI
+            </div>
             <div className="little-info">
-              The maximum amount of DAI that can be donated to this Milestone. Based on the requested amount in fiat.
+              The maximum amount of DAI that can be donated to this Milestone.
+              Based on the requested amount in fiat.
             </div>
           </div>
           <div>
@@ -137,9 +148,7 @@ export class MilestoneInfo extends React.Component {
           </div>
           <div>
             <h3>Date of milestone</h3>
-            <div>
-              16th March 2019
-            </div>
+            <div>16th March 2019</div>
             <div className="little-info">
               This date defines DAI-fiat converstoin rate
             </div>
@@ -151,7 +160,7 @@ export class MilestoneInfo extends React.Component {
 }
 
 export class MilestoneDonations extends React.Component {
-  render () {
+  render() {
     return (
       <div className="milestone-donations">
         <h2>Donations</h2>
